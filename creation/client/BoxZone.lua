@@ -111,3 +111,8 @@ function boxFinish()
   TriggerServerEvent("polyzone:printBox",
     {name=createdZone.name, center=createdZone.center, length=createdZone.length, width=createdZone.width, heading=createdZone.offsetRot, minZ=createdZone.minZ, maxZ=createdZone.maxZ})
 end
+
+function ct_boxFinish(resource)
+  TriggerServerEvent(resource..":returnBox",
+  {name=createdZone.name, center=createdZone.center, length=createdZone.length, width=createdZone.width, heading=createdZone.offsetRot, minZ=createdZone.minZ, maxZ=createdZone.maxZ})
+end

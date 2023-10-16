@@ -52,3 +52,8 @@ function circleFinish()
   TriggerServerEvent("polyzone:printCircle",
     {name=createdZone.name, center=createdZone.center, radius=createdZone.radius, useZ=createdZone.useZ})
 end
+
+function ct_circleFinish(resource)
+  TriggerServerEvent(resource..":returnCircle",
+    {name=createdZone.name, center=createdZone.center, radius=createdZone.radius, useZ=createdZone.useZ})
+end

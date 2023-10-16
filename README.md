@@ -1,11 +1,9 @@
 # PolyZone
-PolyZone is a FiveM mod to define zones of different shapes and test whether a point is inside or outside of the zone
+PolyZone is a FiveM mod to define zones of different shapes and test whether a point is inside or outside of the zone.
+
+Modified for use with [ct_jobcreator](https://forum.cfx.re/t/paid-qb-ct-jobcreator-easy-in-game-job-creation-wardrobe-on-off-duty-bossmenu-stash-location-setters/5018391).
 
 ![PolyZone around the prison](https://i.imgur.com/InKNaoL.jpg)
-
-## Download
-
-Click [here](https://github.com/mkafrin/PolyZone/releases) to go to the releases page and download the latest release
 
 ## Using PolyZone in a Script
 

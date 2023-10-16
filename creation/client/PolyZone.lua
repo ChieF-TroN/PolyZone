@@ -28,6 +28,11 @@ function polyFinish()
     {name=createdZone.name, points=createdZone.points, minZ=minZ, maxZ=maxZ})
 end
 
+function ct_polyFinish(resource)
+  TriggerServerEvent(resource..":returnPoly",
+    {name=createdZone.name, points=createdZone.points, minZ=minZ, maxZ=maxZ})
+end
+
 RegisterNetEvent("polyzone:pzadd")
 AddEventHandler("polyzone:pzadd", function()
   if createdZone == nil or createdZoneType ~= 'poly' then

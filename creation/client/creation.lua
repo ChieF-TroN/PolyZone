@@ -63,6 +63,23 @@ AddEventHandler("polyzone:pzcreate", function(zoneType, name, args)
   drawThread()
 end)
 
+RegisterNetEvent("polyzone:zonecreate")
+AddEventHandler("polyzone:zonecreate", function(zoneType, name, data)
+  if zoneType == 'poly' then
+    polyStart(name)
+  elseif zoneType == "circle" then
+    circleStart(name, data.radius or 2.0)
+  elseif zoneType == "box" then
+    boxStart(name, 0, data.length or 1.0, data.width or 1.0)
+  else
+    return
+  end
+  createdZoneType = zoneType
+  drawZone = true
+  disableControlKeyInput()
+  drawThread()
+end)
+
 RegisterNetEvent("polyzone:pzfinish")
 AddEventHandler("polyzone:pzfinish", function()
   if createdZone == nil then
@@ -90,6 +107,29 @@ AddEventHandler("polyzone:pzfinish", function()
   createdZone = nil
   createdZoneType = nil
 end)
+
+RegisterNetEvent("polyzone:zonefinish")
+AddEventHandler("polyzone:zonefinish", function()
+  if createdZone == nil then
+    return
+  end
+  local resource = GetInvokingResource()
+  if createdZoneType == 'poly' then
+    ct_polyFinish(resource)
+  elseif createdZoneType == "circle" then
+    ct_circleFinish(resource)
+  elseif createdZoneType == "box" then
+    ct_boxFinish(resource)
+  end
+
+  lastCreatedZoneType = createdZoneType
+  lastCreatedZone = createdZone
+
+  drawZone = false
+  createdZone = nil
+  createdZoneType = nil
+end)
+
 
 RegisterNetEvent("polyzone:pzlast")
 AddEventHandler("polyzone:pzlast", function()
